@@ -13,39 +13,27 @@
 </style>
 
 <script type="text/javascript">
-</script>
-	
-<c:if test="${isApplicationUser == false }">
-	<script type="text/javascript">
-	(function($){
-		$(document).ready(function() {
-			var realConfirm = window.confirm;
-			window.confirm = null;
-			
-			function UnPopIt()  { /* nothing to return */ }
-			
-			var dialogOption = {
-					width		: 450,
-					buttons		: 
-						[{
-					        text: '<spring:message code="STD.dialog.ok" />' ,
-					        click: function() {
-					        	var self = $(this);
-					        	self.siblings('.ui-dialog-buttonpane').find('input,button').prop('disabled', true);
-								self.dialog('close');
-								
-								window.onbeforeunload = null;
-								$("#left-menu-panel").remove();
-								var win=open("","_self", "");
-								win.close();
-					        }
-					    }]	
-				};
-			ST3Lib.dialog.confirm('<spring:message code="MSTD0012AERR" arguments="Employee No. of User login, Employee Master." />', 'MSTD0012AERR', dialogOption);
+$( document ).ready(function() {
+	alert(_mappingPath);
+
+	$('#btnLogin').click(function(){
+		
+		$.ajax({
+		  url: _mappingPath+"/login",
+		  data: { username: $('#username').val(), password: $('#password').val() },
+		}).done(function(datas) {
+		  alert( "done" );
+		  searchFinish(datas);
 		});
-	})(ST3Lib.$);;
-	</script>
-</c:if>
+		
+	});
+	window.searchFinish =
+		function searchFinish(datas, loading){
+			alert('a');
+			window.location.href = 'customer/customerExpireList';
+	}
+});
+</script>
 
 <spring:message code="imagepath" var="imagepath" />
 <spring:message code="BW0.menu.group.NewCarInsurance" var="NewCarInsuranceLabel" />
@@ -59,24 +47,24 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>-->
 
-				<form:form method="post" id="search-form" action="${_mappingPath}/login" 
+				<form:form method="post" id="search-form" action="${_mappingPath}/login" ajax="searchFinish" 
 		ajax-loading-target="#result_wrapper" validate-error="clearResult">
 					<span class="login100-form-title">
 						Member Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" value="prathan" name="username" id="username" placeholder="Username">
+						<input class="input100" type="text" name="username" id="username" placeholder="Username">
 						<span class="focus-input100"></span>						
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" value="3Nj0Y8319" name="password" id="password" placeholder="Password">
+						<input class="input100" type="password" name="password" id="password" placeholder="Password">
 						<span class="focus-input100"></span>						
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button type="submit">
+						<button id="btnLogin" type="button">
 							Login
 						</button>
 						<button >

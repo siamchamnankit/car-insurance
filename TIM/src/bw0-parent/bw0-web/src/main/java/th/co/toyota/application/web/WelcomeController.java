@@ -35,6 +35,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContext;
@@ -111,15 +112,16 @@ public class WelcomeController extends BaseController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/login", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody Object searchData(AuthenForm form, HttpServletRequest request, RequestContext context) {
+	@RequestMapping(value="/login", method = {RequestMethod.POST,RequestMethod.GET}, produces = "application/json")
+	public @ResponseBody Object searchData(AuthenForm form, HttpServletRequest request, RequestContext context
+			, @RequestParam String username, @RequestParam String password) {
 		logger.info("Searching Information.");
 		
-		Payload payload = new XmlPayload();
+//		Payload payload = new XmlPayload();
 		ServiceStatus status = ServiceStatus.OK;
-		UserInfo userInfo = repo.authen(form.getUsername(), form.getPassword());
+		UserInfo userInfo = repo.authen(username, password);
 		try{
-			Set<ConstraintViolation<AuthenForm>> errors = validator.validate(form);
+//			Set<ConstraintViolation<AuthenForm>> errors = validator.validate(form);
 //			List<String> errorList = form.validate(messageSource, RequestContextUtils.getLocale(request), AppConstants.ACTION_SEARCH, payload);
 //
 //			if ((!errors.isEmpty()) || (!errorList.isEmpty())) {
