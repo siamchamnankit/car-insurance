@@ -1,13 +1,7 @@
 package th.co.toyota.bw0.web.customer.form;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import org.springframework.context.MessageSource;
-
-import th.co.toyota.application.model.Payload;
-import th.co.toyota.bw0.api.constants.AppConstants;
 import th.co.toyota.bw0.form.common.CBW01000BaseForm;
 import th.co.toyota.bw0.util.ComboValue;
 

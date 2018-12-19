@@ -24,5 +24,5 @@ public class CustomerExpireForm {
 	public void setiExpirePeriod(int iExpirePeriod) {
 		this.iExpirePeriod = iExpirePeriod;
 	}
-	
+
 }

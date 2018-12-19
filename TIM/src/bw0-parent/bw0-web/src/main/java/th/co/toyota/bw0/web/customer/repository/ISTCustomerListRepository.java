@@ -18,9 +18,6 @@
  ********************************************************/
 package th.co.toyota.bw0.web.customer.repository;
 
-import java.sql.Connection;
-import java.util.List;
-
 import th.co.toyota.bw0.web.customer.form.CustomerInfoForm;;
 
 public interface ISTCustomerListRepository {

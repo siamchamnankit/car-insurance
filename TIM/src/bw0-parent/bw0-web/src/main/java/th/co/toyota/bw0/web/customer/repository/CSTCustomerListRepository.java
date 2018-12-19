@@ -44,7 +44,7 @@ public class CSTCustomerListRepository implements ISTCustomerListRepository{
 
 	@Override
 	public Object[] generateSearchQuery(CustomerInfoForm activeform ,String customerName ,String expireDate) throws Exception {
-		CustomerInfoForm form = activeform;
+		CustomerInfoForm form = activeform; 
 		StringBuilder SQL  = new StringBuilder();
 		SQL.append(" SELECT 	");
 		SQL.append(" 	customer_id,  ");
