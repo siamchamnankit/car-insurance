@@ -10,6 +10,7 @@ public class CustomerInsuranceInfo {
 	String model;
 	String insurnaceId;
 	String expireDate;
+
 	
 	public String getCustomerId() {
 		return customerId;
