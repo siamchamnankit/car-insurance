@@ -2,6 +2,8 @@
 
 # DB Structure
 
+*DB Name : insurance*
+
 ```
 TABLE `customer` (
   `customer_id` int(10) NOT NULL,
