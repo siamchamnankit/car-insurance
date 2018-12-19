@@ -50,8 +50,7 @@ public class CSTCustomerListService {
 		Connection conn = null;
 		try{
 			conn = commonRepository.getConnection();
-			Object[] query = repository.generateSearchQuery(form, customerName, expireDate);
-			
+			Object[] query = repository.generateSearchQuery(null , null , 6);
 			
 		
 		}finally{
