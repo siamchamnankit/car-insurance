@@ -41,7 +41,7 @@ public class CSTAuthenRepository implements ISTAuthenRepository {
 			
         	StringBuilder sql = new StringBuilder();
 			sql.append(" SELECT name_lastname ");
-			sql.append(" FROM TB_M_SYSTEM ");
+			sql.append(" FROM user ");
 			sql.append(" WHERE username = '"+userName+"' ");
 			sql.append(" AND password = '"+password+"' ");
 			

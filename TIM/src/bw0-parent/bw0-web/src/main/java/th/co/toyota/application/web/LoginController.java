@@ -18,39 +18,24 @@
  ********************************************************/
 package th.co.toyota.application.web;
 
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-
 //import java.text.SimpleDateFormat;
 //import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintViolation;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.support.RequestContext;
 import org.springframework.web.servlet.support.RequestContextUtils;
-
-import com.google.common.base.Strings;
 
 import th.co.toyota.application.model.Payload;
 import th.co.toyota.application.model.ServiceStatus;
 import th.co.toyota.application.model.XmlPayload;
-import th.co.toyota.application.web.form.AuthenForm;
-import th.co.toyota.application.web.repository.ISTAuthenRepository;
-import th.co.toyota.bw0.api.constants.AppConstants;
-import th.co.toyota.bw0.api.exception.common.CommonErrorException;
 import th.co.toyota.bw0.api.service.common.UserInfo;
-import th.co.toyota.bw0.web.master.form.CST33060Form;
 
 /**
  * A welcome controller to display the welcome login screen.
@@ -63,8 +48,7 @@ import th.co.toyota.bw0.web.master.form.CST33060Form;
 public class WelcomeController extends BaseController {
 	final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	ISTAuthenRepository repo;
+	
 	/**
 	 * THis is the first operation executed for every user session, when user
 	 * login to ST3 web application.
@@ -84,7 +68,7 @@ public class WelcomeController extends BaseController {
 				RequestContextUtils.getLocale(request));
 		payload.setStatus(ServiceStatus.OK);
 		
-		
+		UserInfo userInfo = new UserInfo();
 		
 //		EmployeeInfoId empId = new EmployeeInfoId();
 //		empId.setCompanyCode(this.getUserCompany(userInfo));
@@ -111,52 +95,6 @@ public class WelcomeController extends BaseController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/login", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody Object searchData(AuthenForm form, HttpServletRequest request, RequestContext context) {
-		logger.info("Searching Information.");
-		
-		Payload payload = new XmlPayload();
-		ServiceStatus status = ServiceStatus.OK;
-		UserInfo userInfo = repo.authen(form.getUsername(), form.getPassword());
-		try{
-			Set<ConstraintViolation<AuthenForm>> errors = validator.validate(form);
-//			List<String> errorList = form.validate(messageSource, RequestContextUtils.getLocale(request), AppConstants.ACTION_SEARCH, payload);
-//
-//			if ((!errors.isEmpty()) || (!errorList.isEmpty())) {
-//				errorList.addAll(processErrorMessageFromValidator(errors.toArray(), RequestContextUtils.getLocale(request), new CST33060Form()));
-//				status = ServiceStatus.NG;
-//				payload.addErrorMessages(errorList);
-//			}else{	
-				//payload = populatePayloadForDisplay(VIEW_NAME, payload, RequestContextUtils.getLocale(request));
-			//	boolean isFound = service.searchAllData(form, payload, request);
-				
-				
-				//payload.s
-				//service.loadCombobox(userInfo, form);
-				//List<ComboValue> subCategoryList = service.loadSubCategory(form.getCategorySearch());
-				//form.setSubCategoryList(subCategoryList);
-//				payload.setObjectForm(form);
-				
-//				form.setMessageResult(request.getParameter("messageResult"));
-				/*if (!isFound && Strings.isNullOrEmpty(form.getMessageResult())) {
-					status = ServiceStatus.NG;
-//					payload.addErrorMessage(messageSource.getMessage(CST30000Messages.ERROR_MESSAGE_DATA_NOT_FOUND, new String[] {},
-//							Locale.getDefault()));
-				}*/
-//			}
-//		} catch (CommonErrorException e){
-//			logger.error(ExceptionUtils.getStackTrace(e));
-//			status = ServiceStatus.NG;
-//			payload.addErrorMessage(messageSource.getMessage(e.getMessageCode(), e.getMessageArg(), Locale.getDefault()));
-		} catch (Exception e) {
-			logger.error(ExceptionUtils.getStackTrace(e));
-			status = ServiceStatus.NG;
-//			payload.addErrorMessage(messageSource.getMessage(CST30000Messages.ERROR_UNDEFINED_ERROR, new String[] { e.getMessage() },
-//					RequestContextUtils.getLocale(request)));
-		}
-		return userInfo;
-		
-	}
-	
+
 	
 }

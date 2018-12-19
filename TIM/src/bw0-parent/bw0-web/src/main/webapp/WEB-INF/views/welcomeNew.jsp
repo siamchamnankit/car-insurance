@@ -1,7 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="sc2nav" uri="/WEB-INF/tld/sc2nav.tld"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="datatables" uri="http://github.com/dandelion/datatables" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%@ taglib prefix="views" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="sc2" uri="/WEB-INF/tld/sc2.tld"%>
+
+<views:script src="json2.js"/>
+<views:script src="jquery-ui-1.9.1/jquery.dataTables.js"/>
+<views:style src="jquery.dataTables.css"/>
 <style>
 </style>
 
@@ -52,23 +59,24 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>-->
 
-				<form class="login100-form validate-form">
+				<form:form method="post" id="search-form" action="${_mappingPath}/login" 
+		ajax-loading-target="#result_wrapper" validate-error="clearResult">
 					<span class="login100-form-title">
 						Member Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="username" id="username" placeholder="Username">
+						<input class="input100" type="text" value="prathan" name="username" id="username" placeholder="Username">
 						<span class="focus-input100"></span>						
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="Password" id="Password" placeholder="Password">
+						<input class="input100" type="password" value="3Nj0Y8319" name="password" id="password" placeholder="Password">
 						<span class="focus-input100"></span>						
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button >
+						<button type="submit">
 							Login
 						</button>
 						<button >
@@ -82,7 +90,7 @@
 
 					<div class="text-center p-t-136">						
 					</div>
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>
