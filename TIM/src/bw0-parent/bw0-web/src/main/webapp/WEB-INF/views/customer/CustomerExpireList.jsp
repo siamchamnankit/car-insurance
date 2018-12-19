@@ -63,6 +63,12 @@ input:text {
 			
 			$("#content-result").show();
 		});
+		
+		$("#btnReset").click(function() {
+			$("#content-result").hide();
+			$("#tb-result tbody tr").remove();
+			$("input:text").val("");
+		});
 
 		$("#tb-result tbody tr").click(function() {
 			var customerId = $(this).data("customer-id");
@@ -89,9 +95,12 @@ input:text {
 					value="${form.iExpirePeriod }" />&nbsp;Months</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input id="btnSearch" type="button"
-					value="Search" /> &nbsp;&nbsp;<input id="btnReset" type="reset"
-					value="Clear" /></td>
+				<td colspan="2">
+					<input id="btnSearch" type="button"
+					value="Search" /> &nbsp;&nbsp;
+					<input id="btnReset" type="reset"
+					value="Clear" />
+				</td>
 			</tr>
 		</tbody>
 	</table>
