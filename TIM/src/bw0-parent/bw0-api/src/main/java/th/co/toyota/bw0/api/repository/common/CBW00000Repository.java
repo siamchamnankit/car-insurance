@@ -19,12 +19,7 @@
 package th.co.toyota.bw0.api.repository.common;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,12 +51,44 @@ public class CBW00000Repository implements IBW00000Repository {
 
 	@Override
 	public Connection getConnection(){
-		try{
-			SessionImpl session = (SessionImpl) (em.getDelegate());
-			return session.getJdbcConnectionAccess().obtainConnection();
-		} catch (SQLException e) {
-			return null;
-		}
+//		try{
+//			SessionImpl session = (SessionImpl) (em.getDelegate());
+//			return session.getJdbcConnectionAccess().obtainConnection();
+//		} catch (SQLException e) {
+//			return null;
+//		}
+		
+        Connection connection = null;
+   
+        System.out.println("-------- MySQL JDBC Connection Testing ------------");
+
+    	try {
+    		Class driver_class = Class.forName("com.mysql.jdbc.Driver");
+            Driver driver = (Driver) driver_class.newInstance();
+            DriverManager.registerDriver(driver);
+    	} catch (Exception e) {
+    		System.out.println("Where is your MySQL JDBC Driver?");
+    		e.printStackTrace();
+    	}
+
+    	System.out.println("MySQL JDBC Driver Registered!");
+
+    	try {
+    		connection = DriverManager.getConnection("jdbc:mysql://68.183.189.35:3306/insurance","insurance", "P@ssw0rd");
+
+    	} catch (SQLException e) {
+    		System.out.println("Connection Failed! Check output console");
+    		e.printStackTrace();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+
+    	if (connection != null) {
+    		System.out.println("You made it, take control your database now!");
+    	} else {
+    		System.out.println("Failed to make connection!");
+    	}
+        return connection;
 	}
 	
 	@Override
