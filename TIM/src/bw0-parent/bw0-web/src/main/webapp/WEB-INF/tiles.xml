@@ -12,6 +12,12 @@
       <put-attribute name="body"   value="/WEB-INF/tiles/body.jsp"/>
       <put-attribute name="footer"   value="/WEB-INF/tiles/footer.jsp"/>
   </definition>
+  <definition name="baselogin" template="/WEB-INF/tiles/baseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value=""/>
+      <put-attribute name="body"   value="/WEB-INF/tiles/body.jsp"/>
+      <put-attribute name="footer"   value=""/>
+  </definition>
   
   <definition name="noTemplateLayout" template="/WEB-INF/tiles/noTemplateLayout.jsp">
       <put-attribute name="title"  value="Template"/>
@@ -29,7 +35,7 @@
       <put-attribute name="body"   value="/WEB-INF/tiles/body.jsp"/>
   </definition>
   
-   <definition name="WBW00000" extends="baseLayout">
+   <definition name="WBW00000" extends="baselogin">
       <put-attribute name="title"  value="Welcome Page"/>
       <put-attribute name="body"   value="/WEB-INF/views/welcomeNew.jsp"/>      
   </definition>
