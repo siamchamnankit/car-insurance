@@ -1,6 +1,8 @@
 # car-insurance
 
-DB Structure
+# DB Structure
+
+```
 TABLE `customer` (
   `customer_id` int(10) NOT NULL,
   `customer_name` varchar(100) NOT NULL,
@@ -29,3 +31,4 @@ TABLE `user` (
   `password` varchar(20) NOT NULL,
   `name_lastname` varchar(100) NOT NULL
 )
+```
