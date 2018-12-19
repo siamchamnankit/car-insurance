@@ -277,5 +277,11 @@
 	<put-attribute name="body"   value="/WEB-INF/views/master/WBW04240UnitPlantCapacityMaster.jsp"/>	
   </definition>
   
+   <!-- Search and result -->
+  <definition name="CustomerList" extends="baseLayout">		
+	<put-attribute name="title"  value="Customer Expire List"/>
+	<put-attribute name="body"   value="/WEB-INF/views/customer/CustomerExpireList.jsp"/>	
+  </definition>
+  
   
 </tiles-definitions>
