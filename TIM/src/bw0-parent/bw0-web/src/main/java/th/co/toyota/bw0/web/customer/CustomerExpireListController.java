@@ -20,7 +20,6 @@ import th.co.toyota.application.web.BaseController;
 import th.co.toyota.bw0.api.constants.AppConstants;
 import th.co.toyota.bw0.api.exception.common.CommonErrorException;
 import th.co.toyota.bw0.web.customer.form.CustomerExpireForm;
-import th.co.toyota.bw0.web.master.form.CST33060Form;
 
 @Controller
 @RequestMapping("customer/customerExpireList")
@@ -33,6 +32,8 @@ public class CustomerExpireListController extends BaseController {
 		ModelAndView mv = new ModelAndView(VIEW_NAME);
 		Payload payload = new XmlPayload();
 		ServiceStatus status = ServiceStatus.OK;
+		
+		form.setEnableCriteriaName(false);
 		
 		mv.addObject(AppConstants.MV_FORM, form);
 		mv.addObject(AppConstants.MV_PAYLOAD, payload);
@@ -49,10 +50,10 @@ public class CustomerExpireListController extends BaseController {
 //		return payload;
 		
 		List<CustomerExpireInfo> listCustomer = new ArrayList<CustomerExpireInfo>();
-		for (int i=0; i<=5; i++) {
+		for (int i=1; i<=form.getiExpirePeriod(); i++) {
 			CustomerExpireInfo c = new CustomerExpireInfo();
-			c.setCustomerId("C" + (i+1));
-			c.setCustomerName("Name " + (i+1));
+			c.setCustomerId("C" + (i));
+			c.setCustomerName("Name " + (i));
 			c.setExpireDate("20/01/2019");
 			c.setInsurnaceId("1");
 			

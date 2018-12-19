@@ -1,3 +1,12 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="datatables" uri="http://github.com/dandelion/datatables" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%@ taglib prefix="views" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="sc2" uri="/WEB-INF/tld/sc2.tld"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +48,6 @@ input:text {
 			
 			var url = "/bw0-web/customer/customerExpireList/search";
 			var data = {cName 			: 	$("#cName").val(),
-						cLastname		:	$("#cLastname").val(),
 						iExpirePeriod	: 	$("#expireWithIn").val()
 						};
 			$.ajax({
@@ -81,14 +89,12 @@ input:text {
 	<h1>Customer List</h1>
 	<table>
 		<tbody>
+			<c:if test="${form.enableCriteriaName }">
 			<tr>
 				<td>Customer Name:&nbsp;</td>
 				<td><input id="cName" name="cName" type="text" /></td>
 			</tr>
-			<tr>
-				<td>Customer Lastname</td>
-				<td><input id="cLastName" name="cLastName" type="text" /></td>
-			</tr>
+			</c:if>
 			<tr>
 				<td>Insurance Expire within:&nbsp;</td>
 				<td><input id="expireWithIn" name="expireWithIn" type="number"
