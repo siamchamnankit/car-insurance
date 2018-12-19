@@ -2,3 +2,4 @@ TIM/src/bw0-parent/bw0-web/bin/*
 *.class
 .DS_Store
 target/
+.gitignore
