@@ -34,6 +34,7 @@ public class CustomerInsuranceService {
 			if(customerInsurance != null) {
 				List<InsuranceInfo> insuranceList = repository.searchInsuranceListForRenew(conn, insuranceType);
 				payload.setObjectInfo(customerInsurance);
+				payload.setObjectsInfoList(insuranceList);
 			}
 			
 		}finally{

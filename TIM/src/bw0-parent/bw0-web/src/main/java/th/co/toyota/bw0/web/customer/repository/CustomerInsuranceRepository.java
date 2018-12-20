@@ -50,14 +50,14 @@ public class CustomerInsuranceRepository implements ISTCustomerInsuranceReposito
 			sql.append(" , cus.insurance_id, str_to_date(cus.expire_date,'%d/%m/%Y') as expire_date , ins.insurance_name, ins.insurance_type ");
 			sql.append(" FROM customer cus, insurance ins ");
 			sql.append(" WHERE cus.insurance_id  = ins.insurance_id  ");
-			sql.append(" AND cus.customer_id = "+customerId+" ");
+			sql.append(" AND cus.customer_id = '"+customerId+"' ");
 			
 			ps = conn.prepareStatement(sql.toString());
 			rs = ps.executeQuery();
 			while(rs.next()){
 				customer = new CustomerInsuranceInfo();
 				
-				customer.setCustomerId(rs.getString("name_lastname"));
+				customer.setCustomerId(rs.getString("customer_id"));
 				customer.setCustomerName(rs.getString("customer_name"));
 				customer.setTel(rs.getString("tel"));
 				customer.setEmail(rs.getString("email"));
@@ -134,6 +134,7 @@ public class CustomerInsuranceRepository implements ISTCustomerInsuranceReposito
 				ins.setBox3(rs.getString("box3"));
 				ins.setBox4(rs.getString("box4"));
 				ins.setRemark(rs.getString("remark"));
+				list.add(ins);
 			}
         }catch(Exception e){
         	e.printStackTrace();
