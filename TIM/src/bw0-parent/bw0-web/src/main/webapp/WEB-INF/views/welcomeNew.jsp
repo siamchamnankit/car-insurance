@@ -27,7 +27,7 @@ $( document ).ready(function() {
 				$('#username').val('');
 				$('#password').val('');
 			}else{
-				alert( "Welcome " + datas.name );
+				//alert( "Welcome " + datas.name );
 				sessionStorage.setItem('key', datas.name);
 				var data = sessionStorage.getItem('key');
 				//alert(data);
