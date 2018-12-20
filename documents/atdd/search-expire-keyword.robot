@@ -1,6 +1,8 @@
+#http://68.183.189.35:8080/bw0-web/
 *** Keywords ***
-เปิดระบบ
-    Open Browser    http://68.183.189.35    chrome
+เปิดระบบ 
+    [Arguments]     ${url}
+    Open Browser     ${url}    chrome
 
 แสดงหน้า login
     Page Should Contain      Member Login
@@ -13,7 +15,7 @@
     Click Button    btnLogin
 
 แสดงหน้าค้นหา
-    Page Should Contain     Customer List
+    Wait Until Page Contain     Customer List
 
 กดปุ่มค้นหา
     Click Button    btnSearch
@@ -31,3 +33,6 @@
 
 ปิด Browser
     Close Browser
+
+แสดง error user/password
+    Wait Until Page Contain     non user
