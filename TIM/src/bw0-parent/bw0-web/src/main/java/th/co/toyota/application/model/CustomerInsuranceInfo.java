@@ -10,6 +10,8 @@ public class CustomerInsuranceInfo {
 	String model;
 	String insurnaceId;
 	String expireDate;
+	String insuranceName;
+	String insuranceType;
 
 	
 	public String getCustomerId() {
@@ -65,5 +67,17 @@ public class CustomerInsuranceInfo {
 	}
 	public void setExpireDate(String expireDate) {
 		this.expireDate = expireDate;
+	}
+	public String getInsuranceName() {
+		return insuranceName;
+	}
+	public void setInsuranceName(String insuranceName) {
+		this.insuranceName = insuranceName;
+	}
+	public String getInsuranceType() {
+		return insuranceType;
+	}
+	public void setInsuranceType(String insuranceType) {
+		this.insuranceType = insuranceType;
 	}
 }

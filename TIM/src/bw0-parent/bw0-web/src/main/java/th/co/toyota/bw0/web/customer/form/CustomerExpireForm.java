@@ -3,6 +3,7 @@ package th.co.toyota.bw0.web.customer.form;
 public class CustomerExpireForm {
 
 	private String cName = null;
+	private String currentDate = null;
 	private int iExpirePeriod = 6;
 	
 	private boolean isEnableCriteriaName = false;
@@ -24,6 +25,12 @@ public class CustomerExpireForm {
 	}
 	public void setEnableCriteriaName(boolean isEnableCriteriaName) {
 		this.isEnableCriteriaName = isEnableCriteriaName;
+	}
+	public String getCurrentDate() {
+		return currentDate;
+	}
+	public void setCurrentDate(String currentDate) {
+		this.currentDate = currentDate;
 	}
 
 }
