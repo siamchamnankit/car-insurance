@@ -78,9 +78,12 @@ input:text {
 						  
 						  var row = $('<tr>').addClass("rowData");
 						  row.data("customer-id", o.customerId);
+						  row.data("insurance-type", o.insurance_type);
+						  row.attr("onclick", "showDetail(this);");
 						  var col1 = $('<td>').text((i+1));
 						  var col2 = $('<td>').text(o.customerName);
-						  var col3 = $('<td>').text(o.insurnaceId);
+						  var col3 = $('<td>').text(o.insurnaceName);
+						  var col3 = $('<td>').text(o.insurnaceType);
 						  var col4 = $('<td>').text(o.expireDate);
 						  
 						  $("#tb-result tbody").append(row.append(col1).append(col2).append(col3).append(col4));
@@ -93,20 +96,21 @@ input:text {
 			$("#content-result").show();
 		});
 		
+		window.showDetail = function viewCustomer(obj) {
+			var row = $(obj);
+			var customerId = row.data("customer-id");
+			var insuranceType = row.data("insurance_type");
+			
+			window.location.href = "/bw0-web/customer/customerInsurance?customerId="+customerId+"&insuranceType=" + insuranceType;
+			//alert(customerId);
+		}
+		
 		$("#btnReset").click(function() {
 			$("#content-result").hide();
 			$("#tb-result tbody tr").remove();
 			$("input:text").val("");
 		});
 
-		$("#tb-result tbody").find(".rowData").click(function() {
-			var customerId = $(this).data("customer-id");
-			alert(customerId);
-		});
-		$("#tb-result").find(".rowData").on("click", function() {
-			var customerId = $(this).data("customer-id");
-			alert(customerId);
-		});
 	});
 </script>
 </head>
@@ -142,6 +146,7 @@ input:text {
 				<tr>
 					<th>No.</th>
 					<th>Customer Name</th>
+					<th>Insurance Name</th>
 					<th>Insurance Type</th>
 					<th>Expire Date</th>
 				</tr>
@@ -151,7 +156,7 @@ input:text {
 			</tbody>
 		</table>
 		<p id="result-summary">
-			Total found <span id="total-record">2</span> records
+			Total found <span id="total-record">0</span> records
 		</p>
 	</div>
 
