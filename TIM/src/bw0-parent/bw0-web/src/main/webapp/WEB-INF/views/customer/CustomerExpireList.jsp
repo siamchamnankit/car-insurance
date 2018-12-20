@@ -85,8 +85,9 @@ input:text {
 						  */
 						  
 						  var row = $('<tr>').addClass("rowData");
-						  row.data("customer-id", o.customerId);
-						  row.data("insurance-type", o.insurance_type);
+						  row.data({"customer-id" : o.customerId,
+							  		"insurance-type" : o.insuranceType });
+						  row.data();
 						  row.attr("onclick", "showDetail(this);");
 						  var col1 = $('<td>').text((i+1));
 						  var col2 = $('<td>').text(o.customerName);
@@ -112,7 +113,7 @@ input:text {
 		window.showDetail = function viewCustomer(obj) {
 			var row = $(obj);
 			var customerId = row.data("customer-id");
-			var insuranceType = row.data("insurance_type");
+			var insuranceType = row.data("insurance-type");
 			
 			window.location.href = "/bw0-web/customer/customerInsurance?customerId="+customerId+"&insuranceType=" + insuranceType;
 			//alert(customerId);
