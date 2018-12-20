@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,27 +24,16 @@ public class XmlPayload implements Payload, Serializable {
 	private List<String> infoMessages;
 	private List<String> warningMessages;
 
-	// Log Monitoring
-
-    private List<List<String[]>> groupLogsDisplay;
 	private String focusId;
 
 
-	// Batch Status
-	private List<?> listBatchStatus;
-	private String appLogURL;
 
 
-	// Excen Download
-
-	private int totalRecord;
-	// about screen
-	private String enhancement;
 	// Data Table
 	private List<List<String>> dataList;
 	
+	private Object objectInfo;
 	private List objectsInfoList;
-	private List objectsInfo2List;
 	private CBW01000BaseForm objectForm;
 	
 	//Common Operation Screen
@@ -57,20 +45,12 @@ public class XmlPayload implements Payload, Serializable {
 	private String screenMode;
 	private String jsonProcessCurrent;
 	
-	// pagination
-	private int firstResult;
-	private int rowsPerPage;
-	private int totalRows;
-	
-	private String appId;
-	private String appId2;
-	private Map<String, String> fields;
+
 
 	public XmlPayload() {
 		errorMessages = new ArrayList<String>();
 		infoMessages = new ArrayList<String>();
 		warningMessages = new ArrayList<String>();
-		fields = new HashMap<String, String>();
 	}
 
 	/*
@@ -308,82 +288,6 @@ public class XmlPayload implements Payload, Serializable {
 
 
 
-
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see th.co.toyota.application.model.Payload#setTotalRecord(int)
-	 */
-	public void setTotalRecord(int totalRecord) {
-		this.totalRecord = totalRecord;
-	}
-
-
-
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see th.co.toyota.application.model.Payload#getEnhancement()
-	 */
-	public String getEnhancement() {
-		return enhancement;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * th.co.toyota.application.model.Payload#setEnhancement(java.lang.String)
-	 */
-	public void setEnhancement(String enhancement) {
-		this.enhancement = enhancement;
-	}
-
-	
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see th.co.toyota.application.model.Payload#getBatchStatusList()
-	 */
-	@Override
-	public List<?> getBatchStatusList() {
-		return listBatchStatus;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * th.co.toyota.application.model.Payload#setBatchStatusList(java.util.List)
-	 */
-	@Override
-	public void setBatchStatusList(List<?> listBatchStatus) {
-		this.listBatchStatus = listBatchStatus;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see th.co.toyota.application.model.Payload#getAppLogURL()
-	 */
-	@Override
-	public String getAppLogURL() {
-		return appLogURL;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * th.co.toyota.application.model.Payload#setAppLogURL(java.lang.String)
-	 */
-	@Override
-	public void setAppLogURL(String appLogURL) {
-		this.appLogURL = appLogURL;
-	}
-
 	
 	@Override
 	public List<List<String>> getDataList() {
@@ -395,35 +299,6 @@ public class XmlPayload implements Payload, Serializable {
 		this.dataList = dataList;
 	}
 
-	@Override
-	public int getFirstResult() {
-		return firstResult;
-	}
-
-	@Override
-	public void setFirstResult(int firstResult) {
-		this.firstResult = firstResult;
-	}
-
-	@Override
-	public int getRowsPerPage() {
-		return rowsPerPage;
-	}
-
-	@Override
-	public void setRowsPerPage(int rowsPerPage) {
-		this.rowsPerPage = rowsPerPage;
-	}
-
-	@Override
-	public int getTotalRows() {
-		return totalRows;
-	}
-
-	@Override
-	public void setTotalRows(int totalRows) {
-		this.totalRows = totalRows;
-	}
 	
 	@Override
 	public void setScreenMode(String screenMode) {
@@ -457,13 +332,13 @@ public class XmlPayload implements Payload, Serializable {
 	}
 	
 	@Override
-	public List getObjectsInfo2List() {
-		return this.objectsInfo2List;
+	public Object getObjectInfo() {
+		return this.objectInfo;
 	}
 
 	@Override
-	public void setObjectsInfo2List(List objectsInfo2List) {
-		this.objectsInfo2List = objectsInfo2List;
+	public void setObjectInfo(Object objectInfo) {
+		this.objectInfo = objectInfo;
 	}
 
 	public String getJsonProcessCurrent() {
@@ -485,43 +360,6 @@ public class XmlPayload implements Payload, Serializable {
 	}
 	
 	@Override
-	public String getAppId() {
-		return this.appId;
-	}
-
-	@Override
-	public void setAppId(String aplid) {
-		this.appId = aplid;
-	}
-
-	@Override
-	public String getAppId2() {
-		return this.appId2;
-	}
-
-	@Override
-	public void setAppId2(String aplid2) {
-		this.appId2 = aplid2;
-	}
-
-
-	/**
-	 * @return the fields
-	 */
-	public Map<String, String> getFields() {
-		return fields;
-	}
-
-	/**
-	 * @param fields the fields to set
-	 */
-	public void setFields(Map<String, String> fields) {
-		this.fields = fields;
-	}
-
-
-
-	@Override
 	public Map<Character, String> getReportStatusData() {
 		// TODO Auto-generated method stub
 		return null;
@@ -530,16 +368,5 @@ public class XmlPayload implements Payload, Serializable {
 	@Override
 	public void setReportStatusData(Map<Character, String> reportStatusData) {
 		// TODO Auto-generated method stub
-		
 	}
-
-
-
-	@Override
-	public int getTotalRecord() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	
 }
