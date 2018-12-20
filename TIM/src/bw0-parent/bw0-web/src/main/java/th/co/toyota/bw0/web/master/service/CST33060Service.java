@@ -76,9 +76,6 @@ public class CST33060Service {
 					payload.setObjectsInfoList(null);
 				}
 			}
-			payload.setFirstResult(firstResult);
-			payload.setRowsPerPage(rowsPerPage);
-			payload.setTotalRows(totalRows);
 		}finally{
 			try {
 				if(conn!=null && !conn.isClosed()){
