@@ -47,8 +47,13 @@ input:text {
 			}
 			
 			var url = "/bw0-web/customer/customerExpireList/search";
-			var data = {cName 			: 	$("#cName").val(),
-						iExpirePeriod	: 	$("#expireWithIn").val()
+			var customerName = $("#cName").val();
+			if ($("#cName").length == 0) {
+				customerName = "";
+			}
+			var data = {cName 			: 	customerName,
+						iExpirePeriod	: 	$("#expireWithIn").val(),
+						currentDate		: 	$.datepicker.formatDate('dd/mm/yy', new Date())
 						};
 			$.ajax({
 				  type: "POST",

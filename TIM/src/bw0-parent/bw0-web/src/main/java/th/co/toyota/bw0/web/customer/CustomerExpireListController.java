@@ -29,7 +29,8 @@ public class CustomerExpireListController extends BaseController {
 
 	private static final String VIEW_NAME = "CustomerList";
 	
-	private CSTCustomerListService service = new CSTCustomerListService();
+	@Autowired
+	private CSTCustomerListService service;
 
 	
 	@RequestMapping(method = RequestMethod.GET)
