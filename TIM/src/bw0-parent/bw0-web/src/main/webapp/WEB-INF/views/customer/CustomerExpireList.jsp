@@ -83,17 +83,21 @@ input:text {
 						  var col1 = $('<td>').text((i+1));
 						  var col2 = $('<td>').text(o.customerName);
 						  var col3 = $('<td>').text(o.insurnaceName);
-						  var col3 = $('<td>').text(o.insurnaceType);
-						  var col4 = $('<td>').text(o.expireDate);
+						  var col3 = $('<td>').text(o.insuranceName);
+						  var col4 = $('<td>').text(o.insuranceType);
+						  var col5 = $('<td>').text(o.expireDate);
 						  
-						  $("#tb-result tbody").append(row.append(col1).append(col2).append(col3).append(col4));
+						  $("#tb-result tbody").append(row.append(col1).append(col2).append(col3).append(col4).append(col5));
 						  
+						  if ((i+1) == oData.length) {
+							  $("#content-result").show();
+						  }
 					  });
 					  $("#total-record").html(oData.length);
 				  }
 				});
 			
-			$("#content-result").show();
+			
 		});
 		
 		window.showDetail = function viewCustomer(obj) {

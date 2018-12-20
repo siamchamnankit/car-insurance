@@ -98,7 +98,8 @@ public class CSTCustomerListRepository implements ISTCustomerListRepository{
 				CustomerExpireInfo customer = new CustomerExpireInfo();
 				customer.setCustomerId(rs.getString("customer_id"));
 				customer.setCustomerName(rs.getString("customer_name"));
-				customer.setInsurnaceId(rs.getString("insurance_id"));
+				customer.setInsuranceName(rs.getString("insurance_name"));
+				customer.setInsuranceType(rs.getString("insurance_type"));
 				customer.setExpireDate(rs.getString("expire_date"));
 				customer.setInsuranceType(rs.getString("insurance_type"));
 				
