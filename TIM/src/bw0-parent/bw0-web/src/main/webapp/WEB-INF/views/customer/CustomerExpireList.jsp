@@ -46,9 +46,19 @@ input:text {
 				return;
 			}
 			
+			if (iExpireWithIn <= 0 || iExpireWithIn > 12) {
+				alert ("Insurance Expire within should be between 1 and 12");
+				return;
+			}
+			
 			var url = "/bw0-web/customer/customerExpireList/search";
-			var data = {cName 			: 	$("#cName").val(),
-						iExpirePeriod	: 	$("#expireWithIn").val()
+			var customerName = $("#cName").val();
+			if ($("#cName").length == 0) {
+				customerName = "";
+			}
+			var data = {cName 			: 	customerName,
+						iExpirePeriod	: 	$("#expireWithIn").val(),
+						currentDate		: 	$.datepicker.formatDate('dd/mm/yy', new Date())
 						};
 			$.ajax({
 				  type: "POST",
@@ -58,12 +68,23 @@ input:text {
 					  console.log(oData);
 					  $("#tb-result tbody tr").remove();
 					  $.each(oData, function(i, o) {
-						  var row = "<tr data-customer-id=\""+o.customerId+"\"><td>"+(i+1)+"</td><td>"+
+						  /*var row = "<tr class=\"row-data\" data-customer-id=\""+o.customerId+"\"><td>"+(i+1)+"</td><td>"+
 						  o.customerName + "</td><td>"+
 						  o.insurnaceId+"</td><td>"+
 						  o.expireDate+"</td></tr>";
 						  
 						  $("#tb-result tbody").append(row);
+						  */
+						  
+						  var row = $('<tr>').addClass("rowData");
+						  row.data("customer-id", o.customerId);
+						  var col1 = $('<td>').text((i+1));
+						  var col2 = $('<td>').text(o.customerName);
+						  var col3 = $('<td>').text(o.insurnaceId);
+						  var col4 = $('<td>').text(o.expireDate);
+						  
+						  $("#tb-result tbody").append(row.append(col1).append(col2).append(col3).append(col4));
+						  
 					  });
 					  $("#total-record").html(oData.length);
 				  }
@@ -78,7 +99,11 @@ input:text {
 			$("input:text").val("");
 		});
 
-		$("#tb-result tbody tr").click(function() {
+		$("#tb-result tbody").find(".rowData").click(function() {
+			var customerId = $(this).data("customer-id");
+			alert(customerId);
+		});
+		$("#tb-result").find(".rowData").on("click", function() {
 			var customerId = $(this).data("customer-id");
 			alert(customerId);
 		});
@@ -97,7 +122,7 @@ input:text {
 			</c:if>
 			<tr>
 				<td>Insurance Expire within:&nbsp;</td>
-				<td><input id="expireWithIn" name="expireWithIn" type="number"
+				<td><input id="expireWithIn" name="expireWithIn" type="number" min="1" max="12"
 					value="${form.iExpirePeriod }" />&nbsp;Months</td>
 			</tr>
 			<tr>

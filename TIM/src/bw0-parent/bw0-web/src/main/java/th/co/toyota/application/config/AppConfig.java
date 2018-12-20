@@ -62,6 +62,8 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 		"th.co.toyota.bw0.api.common",
 		"th.co.toyota.bw0.web.common",
 		"th.co.toyota.bw0.web.report",
+		"th.co.toyota.bw0.web.customer.service",
+		"th.co.toyota.bw0.web.customer.repository",
 		"th.co.toyota.bw0.web",
 		"th.co.toyota.bw0.util"})
 public class AppConfig {
