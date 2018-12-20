@@ -56,7 +56,14 @@ public class CSTCustomerListService {
 			
 			
 			for (Object objArr : objAll) {
+				Object[] obj = (Object[]) objArr;
+				CustomerExpireInfo customer = new CustomerExpireInfo();
+				customer.setCustomerId((String)obj[0]);
+				customer.setCustomerName((String) obj[1]);
+				customer.setInsurnaceId((String) obj[2]);
+				customer.setExpireDate((String) obj[3]);
 				
+				listResult.add(customer);
 			}
 		
 		}finally{

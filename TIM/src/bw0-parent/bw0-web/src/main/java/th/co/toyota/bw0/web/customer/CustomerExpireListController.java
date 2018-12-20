@@ -53,18 +53,18 @@ public class CustomerExpireListController extends BaseController {
 		
 		List<CustomerExpireInfo> listCustomer = new ArrayList<CustomerExpireInfo>();
 		try {
-			service.searchCustomerExpireData(null, form.getcName(), form.getCurrentDate(), null);
+//			service.searchCustomerExpireData(null, form.getcName(), form.getCurrentDate(), null);
+			listCustomer = service.searchCustomerExpireData(form.getcName(), form.getCurrentDate(), form.getiExpirePeriod());
 			
-			
-			for (int i=1; i<=form.getiExpirePeriod(); i++) {
-				CustomerExpireInfo c = new CustomerExpireInfo();
-				c.setCustomerId("C" + (i));
-				c.setCustomerName("Name " + (i));
-				c.setExpireDate("20/01/2019");
-				c.setInsurnaceId("1");
-				
-				listCustomer.add(c);
-			}
+//			for (int i=1; i<=form.getiExpirePeriod(); i++) {
+//				CustomerExpireInfo c = new CustomerExpireInfo();
+//				c.setCustomerId("C" + (i));
+//				c.setCustomerName("Name " + (i));
+//				c.setExpireDate("20/01/2019");
+//				c.setInsurnaceId("1");
+//				
+//				listCustomer.add(c);
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
