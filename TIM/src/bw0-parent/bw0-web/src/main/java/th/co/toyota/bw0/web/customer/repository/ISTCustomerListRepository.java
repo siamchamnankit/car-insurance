@@ -18,8 +18,10 @@
  ********************************************************/
 package th.co.toyota.bw0.web.customer.repository;
 
-import th.co.toyota.bw0.web.customer.form.CustomerInfoForm;;
+import java.util.List;
+
+import th.co.toyota.application.model.CustomerExpireInfo;
 
 public interface ISTCustomerListRepository {
-	Object[] generateSearchQuery(String customerName, String curDate, int preiod) throws Exception;
+	List<CustomerExpireInfo> generateSearchQuery(String customerName, String curDate, int preiod) throws Exception;
 }
