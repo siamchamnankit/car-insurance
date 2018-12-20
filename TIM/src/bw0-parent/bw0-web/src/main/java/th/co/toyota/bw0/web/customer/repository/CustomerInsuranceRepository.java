@@ -119,7 +119,7 @@ public class CustomerInsuranceRepository implements ISTCustomerInsuranceReposito
 			}else if("3".equals(insuranceType)) {
 				sql.append(" insurance_id in (1,2,3) ");
 			}
-			sql.append(" order by insurance_id ");
+			sql.append(" order by insurance_type asc ");
 			
 			ps = conn.prepareStatement(sql.toString());
 			rs = ps.executeQuery();

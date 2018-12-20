@@ -277,8 +277,8 @@
 	<put-attribute name="body"   value="/WEB-INF/views/master/WBW04240UnitPlantCapacityMaster.jsp"/>	
   </definition>
   
-    <definition name="WBW09000" extends="baseLayout">		
-	<put-attribute name="title"  value="Insurance Detail List"/>
+    <definition name="WBW09000" extends="blankLayout">		
+	<put-attribute name="title"  value="Customer Insurance"/>
 	<put-attribute name="body"   value="/WEB-INF/views/customer/insuranceDetailList.jsp"/>	
   </definition>
 

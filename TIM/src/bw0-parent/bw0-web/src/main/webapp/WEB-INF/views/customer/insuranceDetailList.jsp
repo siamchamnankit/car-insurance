@@ -17,11 +17,13 @@
 } 
 #tbl_insurance_detail th, #tbl_insurance_detail td{
     width: 150px;
+    border: solid black 1px;
 }
 #tblBox { min-height: 100px; }
 #tblBox td {
 	width: 200px;
 	min-height: 100px;
+	padding: 1px;
 }
 </style>
 <script language="javascript" type="text/javascript">
@@ -34,7 +36,7 @@
 <div class="" style="margin-top: 5px;margin-left:5px;" >
 	<h1><spring:message code="Label.title.detail"/></h1>
 	
-	<table id="tbl_insurance_detail" border="1">
+	<table id="tbl_insurance_detail">
 	  <tr>
 	    <th align="left"><spring:message code="Label.title.customer.name"/></th>
 	    <td>${customerInfo.customerName}</td>
@@ -78,7 +80,7 @@
 			<span class="ins_title"><c:out value="${insurance.insuranceName}"/></span>
 			<br/><br/>
 			
-			<table id="tblBox" border="1">
+			<table id="tblBox">
 			  <tr>
 			    <td align="center" style="background-color : black;color: white;"><c:out value="${insurance.box1}"/></td>
 			    <td align="center" style="margin-left: 5px;background-color : lightgray;"><c:out value="${insurance.box2}"/></td>
