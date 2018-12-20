@@ -5,15 +5,17 @@ Test Template    Search ประกันชั้น 2
 #Suite Teardown    ปิด Browser
 Resource    ./search-expire-keyword.robot
 
+*** Variables ***
+${url}    ${url}
+
 *** Test Cases ***
-Search ประกันชั้น 2 สุกัญญา    1   สุกัญญา
-Search ประกันชั้น 2 สุกัญญา    2   สุกัญญา  
+Search ประกันชั้น 2 สุกัญญา    4   สุกัญญา
 
 
 *** Keywords ***
 Search ประกันชั้น 2
     [Arguments]    ${rownum}    ${customer}
-    เปิดระบบ
+    เปิดระบบ    ${url}
     แสดงหน้า login
     พิมพ์ username
     ระบุ password ถุกต้อง

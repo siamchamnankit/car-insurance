@@ -5,13 +5,16 @@ Test Template    Search ประกันชั้น 3
 #Suite Teardown    ปิด Browser
 Resource    ./search-expire-keyword.robot
 
+*** Variables ***
+${url}    ${url}
+
 *** Test Cases ***
-Search ประกันชั้น 3 กณิกนันต์     3   กณิกนันต์  
+Search ประกันชั้น 3 กณิกนันต์     2   กณิกนันต์  
 
 *** Keywords ***
 Search ประกันชั้น 3
     [Arguments]    ${rownum}    ${customer}
-    เปิดระบบ
+    เปิดระบบ    ${url}
     แสดงหน้า login
     พิมพ์ username
     ระบุ password ถุกต้อง

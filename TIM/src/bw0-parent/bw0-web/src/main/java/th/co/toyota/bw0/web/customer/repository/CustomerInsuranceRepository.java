@@ -47,7 +47,7 @@ public class CustomerInsuranceRepository implements ISTCustomerInsuranceReposito
 			
         	StringBuilder sql = new StringBuilder();
 			sql.append(" SELECT cus.customer_id, cus.customer_name, cus.tel, cus.email, cus.brand, cus.province, cus.model ");
-			sql.append(" , cus.insurance_id, str_to_date(cus.expire_date,'%d/%m/%Y') as expire_date , ins.insurance_name, ins.insurance_type ");
+			sql.append(" , cus.insurance_id, DATE_FORMAT(cus.expire_date, '%d/%m/%Y') as expire_date , ins.insurance_name, ins.insurance_type ");
 			sql.append(" FROM customer cus, insurance ins ");
 			sql.append(" WHERE cus.insurance_id  = ins.insurance_id  ");
 			sql.append(" AND cus.customer_id = '"+customerId+"' ");
