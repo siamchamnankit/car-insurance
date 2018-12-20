@@ -34,7 +34,7 @@ public class CustomerListServiceTest {
 	@Autowired
 	private CSTCustomerListService service;
 	List<CustomerExpireInfo> customerList = new ArrayList<CustomerExpireInfo>();
-	String customerName = "r" ;
+	String customerName = "" ;
 	String curDate      = "";
 	int preiod          = 0 ;
 	
