@@ -43,33 +43,25 @@ public class CSTCustomerListRepository implements ISTCustomerListRepository{
 
 
 	@Override
-	public Object[] generateSearchQuery(CustomerInfoForm activeform ,String customerName ,String expireDate) throws Exception {
-		CustomerInfoForm form = activeform; 
+	public Object[] generateSearchQuery(String customerName ,String curDate,int preiod) throws Exception {	
 		StringBuilder SQL  = new StringBuilder();
-		SQL.append(" SELECT 	");
-		SQL.append(" 	customer_id,  ");
-		SQL.append(" 	customer_name, ");
-		SQL.append(" 	tel, ");
-		SQL.append(" 	email, ");
-		SQL.append(" 	brand, ");
-		SQL.append(" 	province, ");
-		SQL.append(" 	model, ");
-		SQL.append(" 	insurance_id, ");
-		SQL.append(" 	expire_date ");
-		SQL.append(" FROM CUSTOMER WHERE 1=1 ");
-		
-		if(!customerName.isEmpty()){
-			SQL.append("AND ? = customer_name");
-		}
-		
-		if(!expireDate.isEmpty()){
-			SQL.append("AND ? >= DATE_SUB(expire_date,INTERVAL 6 MONTH)");
-		}
-		
+
+		SQL.append(" SELECT   ");
+		SQL.append(" customer.customer_id,  ");
+		SQL.append(" customer.customer_name,   ");
+		SQL.append(" insurance.insurance_name,   ");
+		SQL.append(" customer.expire_date   ");
+		SQL.append(" FROM customer    ");
+		SQL.append(" inner JOIN insurance    ");
+		SQL.append(" on customer.insurance_id = insurance.insurance_id   ");
+		SQL.append(" where STR_TO_DATE('"+curDate+"', '%d/%m/%Y') >= DATE_SUB(expire_date,INTERVAL "+preiod+" MONTH)  ");
 		List<Object> parameter = new ArrayList<Object>();
-		parameter.add(customerName);
-		parameter.add(expireDate);
+		if(!curDate.isEmpty()){
+			SQL.append("AND ? >= DATE_SUB(expire_date,INTERVAL 6 MONTH)");
+			parameter.add(customerName);
+		}
 		
+		SQL.append(" order by customer.expire_date  ");
 		return new Object[]{ SQL, parameter};
 	}
 

@@ -21,5 +21,5 @@ package th.co.toyota.bw0.web.customer.repository;
 import th.co.toyota.bw0.web.customer.form.CustomerInfoForm;;
 
 public interface ISTCustomerListRepository {
-	Object[] generateSearchQuery(CustomerInfoForm form ,String customerName ,String expireDate) throws Exception;
+	Object[] generateSearchQuery(String customerName, String curDate, int preiod) throws Exception;
 }
