@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.google.common.base.Strings;
+
 import th.co.toyota.application.config.AppConfig;
 import th.co.toyota.application.web.repository.ISTAuthenRepository;
 import th.co.toyota.bw0.api.repository.common.IBW00000Repository;
@@ -55,9 +57,9 @@ public class AuthenRepositoryTest {
 		
 		UserInfo userInfo = repository.authen(username, password);
 
-		assertTrue(userInfo.getName().isEmpty());
-		assertTrue(userInfo.getUserName().isEmpty());
-		assertTrue(userInfo.getUserPass().isEmpty());
+		assertTrue(Strings.isNullOrEmpty(userInfo.getName()));
+		assertTrue(Strings.isNullOrEmpty(userInfo.getUserName()));
+		assertTrue(Strings.isNullOrEmpty(userInfo.getUserPass()));
 	}
 
 	@Test
@@ -66,9 +68,9 @@ public class AuthenRepositoryTest {
 		
 		UserInfo userInfo = repository.authen(username, password);
 		
-		assertTrue(userInfo.getName().isEmpty());
-		assertTrue(userInfo.getUserName().isEmpty());
-		assertTrue(userInfo.getUserPass().isEmpty());
+		assertTrue(Strings.isNullOrEmpty(userInfo.getName()));
+		assertTrue(Strings.isNullOrEmpty(userInfo.getUserName()));
+		assertTrue(Strings.isNullOrEmpty(userInfo.getUserPass()));
 	}
 	
 	@Test
@@ -78,9 +80,9 @@ public class AuthenRepositoryTest {
 		
 		UserInfo userInfo = repository.authen(username, password);
 		
-		assertTrue(userInfo.getName().isEmpty());
-		assertTrue(userInfo.getUserName().isEmpty());
-		assertTrue(userInfo.getUserPass().isEmpty());
+		assertTrue(Strings.isNullOrEmpty(userInfo.getName()));
+		assertTrue(Strings.isNullOrEmpty(userInfo.getUserName()));
+		assertTrue(Strings.isNullOrEmpty(userInfo.getUserPass()));
 	}
 
 	
