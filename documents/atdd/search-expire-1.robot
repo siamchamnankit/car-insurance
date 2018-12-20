@@ -5,14 +5,17 @@ Test Template    Search ประกันชั้น 1
 #Suite Teardown    ปิด Browser
 Resource    ./search-expire-keyword.robot
 
+*** Variables ***
+${url}    ${url}
+
 *** Test Cases ***
-Search ประกันชั้น 1 เพลิน    4   เพลิน
+Search ประกันชั้น 1 เพลิน    3   เพลิน
 Search ประกันชั้น 1 สบาย    5   สบาย  
 
 *** Keywords ***
 Search ประกันชั้น 1
     [Arguments]    ${rownum}    ${customer}
-    เปิดระบบ
+    เปิดระบบ    ${url}
     แสดงหน้า login
     พิมพ์ username
     ระบุ password ถุกต้อง
