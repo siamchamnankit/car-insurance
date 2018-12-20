@@ -21,15 +21,17 @@ $( document ).ready(function() {
 		  url: _mappingPath+"/login",
 		  data: { username: $('#username').val(), password: $('#password').val() },
 		}).done(function(datas) {
-		  alert( "done" );
+		 // alert( "done" );
 		  searchFinish(datas);
 		});
 		
 	});
 	window.searchFinish =
 		function searchFinish(datas, loading){
-			alert('a');
 			window.location.href = 'customer/customerExpireList';
+	}
+	$('#btnCancel').click(function(){
+		
 	}
 });
 </script>
@@ -66,7 +68,7 @@ $( document ).ready(function() {
 						<button id="btnLogin" type="button">
 							Login
 						</button>
-						<button >
+						<button id="btnCancel" type="button">
 							Cancel
 						</button>
 					</div>
