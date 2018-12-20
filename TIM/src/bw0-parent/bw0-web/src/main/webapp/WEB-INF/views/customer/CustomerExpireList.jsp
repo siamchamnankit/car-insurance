@@ -36,6 +36,10 @@ th {
 input:text {
 	border: 1px solid #000;
 }
+#loading {
+	display: none;
+	color: pink;
+}
 </style>
 <script>
 	$(function() {
@@ -50,6 +54,9 @@ input:text {
 				alert ("Insurance Expire within should be between 1 and 12");
 				return;
 			}
+			
+			$("#content-result").hide();
+			$("#loading").show();
 			
 			var url = "/bw0-web/customer/customerExpireList/search";
 			var customerName = $("#cName").val();
@@ -91,6 +98,7 @@ input:text {
 						  
 						  if ((i+1) == oData.length) {
 							  $("#content-result").show();
+							  $("#loading").hide();
 						  }
 					  });
 					  $("#total-record").html(oData.length);
@@ -140,6 +148,9 @@ input:text {
 					<input id="btnReset" type="reset"
 					value="Clear" />
 				</td>
+			</tr>
+			<tr id="loading">
+				<td>Loading..... Please wait!!!</td>
 			</tr>
 		</tbody>
 	</table>
