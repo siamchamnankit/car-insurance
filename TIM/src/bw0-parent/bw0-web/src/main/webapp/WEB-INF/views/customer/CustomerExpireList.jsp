@@ -56,7 +56,7 @@ input:text {
 				  data: data,
 				  success: function(oData) {
 					  console.log(oData);
-					  // Generate table
+					  $("#tb-result tbody tr").remove();
 					  $.each(oData, function(i, o) {
 						  var row = "<tr data-customer-id=\""+o.customerId+"\"><td>"+(i+1)+"</td><td>"+
 						  o.customerName + "</td><td>"+
