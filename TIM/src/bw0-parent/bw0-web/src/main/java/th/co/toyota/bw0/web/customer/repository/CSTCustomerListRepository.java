@@ -76,7 +76,7 @@ public class CSTCustomerListRepository implements ISTCustomerListRepository{
 				SQL.append(" FROM customer    ");
 				SQL.append(" inner JOIN insurance    ");
 				SQL.append(" on customer.insurance_id = insurance.insurance_id   ");
-				SQL.append(" where STR_TO_DATE('"+curDate+"', '%d/%m/%Y') >= DATE_SUB(expire_date,INTERVAL "+preiod+" MONTH)  ");
+				SQL.append(" where expire_date between STR_TO_DATE('\"+curDate+\"', '%d/%m/%Y') and DATE_ADD(STR_TO_DATE('"+curDate+"', '%d/%m/%Y'),INTERVAL \"+preiod+\" MONTH)   ");
 				
 				List<Object> parameter = new ArrayList<Object>();
 				if (Strings.isNullOrEmpty(customerName) == false) {

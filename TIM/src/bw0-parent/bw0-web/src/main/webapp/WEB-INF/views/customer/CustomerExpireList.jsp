@@ -59,7 +59,7 @@ input:text {
 			$("#content-result").hide();
 			$("#loading").show();
 			
-			var url = "/bw0-web/customer/customerExpireList/search";
+			var url = _mappingPath+"/customer/customerExpireList/search";
 			var customerName = $("#cName").val();
 			if ($("#cName").length == 0) {
 				customerName = "";
@@ -115,7 +115,7 @@ input:text {
 			var customerId = row.data("customer-id");
 			var insuranceType = row.data("insurance-type");
 			
-			window.location.href = "/bw0-web/customer/customerInsurance?customerId="+customerId+"&insuranceType=" + insuranceType;
+			window.location.href = _mappingPath+"/customer/customerInsurance?customerId="+customerId+"&insuranceType=" + insuranceType;
 			//alert(customerId);
 		}
 		
