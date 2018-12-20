@@ -21,17 +21,24 @@ $( document ).ready(function() {
 		  url: _mappingPath+"/login",
 		  data: { username: $('#username').val(), password: $('#password').val() },
 		}).done(function(datas) {
-		  alert( "done" );
+		 // alert( "done" );
 		  searchFinish(datas);
 		});
 		
 	});
 	window.searchFinish =
 		function searchFinish(datas, loading){
-			alert('a');
 			window.location.href = 'customer/customerExpireList';
 	}
+	
+		
+		
+	
 });
+function cancel(){
+	$('#username').val('');
+	$('#password').val('');
+}
 </script>
 
 <spring:message code="imagepath" var="imagepath" />
@@ -66,7 +73,7 @@ $( document ).ready(function() {
 						<button id="btnLogin" type="button">
 							Login
 						</button>
-						<button >
+						<button onclick="cancel()" type="button">
 							Cancel
 						</button>
 					</div>

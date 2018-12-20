@@ -1,10 +1,9 @@
 package th.co.toyota.bw0.web.customer.form;
 
-import th.co.toyota.bw0.form.common.CBW01000BaseForm;
+public class CustomerInsuranceForm{
 
-public class CustomerInsuranceForm  extends CBW01000BaseForm{
-
-	private String customerId = null;
+	private String customerId;
+	private String insuranceType;
 
 	public String getCustomerId() {
 		return customerId;
@@ -12,6 +11,14 @@ public class CustomerInsuranceForm  extends CBW01000BaseForm{
 
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
+	}
+
+	public String getInsuranceType() {
+		return insuranceType;
+	}
+
+	public void setInsuranceType(String insuranceType) {
+		this.insuranceType = insuranceType;
 	}
 
 	

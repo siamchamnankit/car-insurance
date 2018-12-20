@@ -1,12 +1,7 @@
 package th.co.toyota.bw0.web.customer;
 
 
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -22,9 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContext;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import com.google.common.base.Strings;
-
-import th.co.toyota.application.model.CustomerExpireInfo;
 import th.co.toyota.application.model.Payload;
 import th.co.toyota.application.model.ServiceStatus;
 import th.co.toyota.application.model.XmlPayload;
@@ -33,10 +25,10 @@ import th.co.toyota.bw0.api.constants.AppConstants;
 import th.co.toyota.bw0.api.exception.common.CommonErrorException;
 import th.co.toyota.bw0.api.repository.common.IBW00000Repository;
 import th.co.toyota.bw0.api.service.common.CBW00000CommonService;
+import th.co.toyota.bw0.api.service.common.UserInfo;
 import th.co.toyota.bw0.web.customer.form.CustomerInsuranceForm;
 import th.co.toyota.bw0.web.customer.service.CustomerInsuranceService;
 import th.co.toyota.bw0.web.master.form.CST33060Form;
-import th.co.toyota.bw0.api.service.common.UserInfo;
 
 @Controller
 @RequestMapping("customer/customerInsurance")
@@ -93,9 +85,8 @@ public class CustomerInsuranceController extends BaseController {
 		try{
 			payload = populatePayloadForDisplay(VIEW_NAME, payload, RequestContextUtils.getLocale(request));
 			form.getCustomerId();
-			boolean isFound = service.searchCustomer(customerId, form, payload, request);;
+			boolean isFound = service.searchAllData(form.getCustomerId(), form.getInsuranceType(), payload);
 
-			payload.setObjectForm(form);
 			if (!isFound) {
 				status = ServiceStatus.NG;
 			}

@@ -66,45 +66,15 @@ public interface Payload {
 
 	Boolean getHaveMessages();
 
-
-
 	String getFocusId();
 
 	void setFocusId(String id);
 	
 
-	// End Log Monitoring
-
-
-	// End System Master
-
-
-	// End System Master
-
-	// Start Batch Status
-	List<?> getBatchStatusList();
-
-	void setBatchStatusList(List<?> listBatchStatus);
-
-	String getAppLogURL();
-
-	void setAppLogURL(String appLogURL);
-
-	// End System Status
-
-	// Start Excel Download Monitoring
-
-
 	Map<Character, String> getReportStatusData();
 
 	void setReportStatusData(Map<Character, String> reportStatusData);
 
-	// End Excel Download Monitoring
-
-	// about screen
-	String getEnhancement();
-
-	void setEnhancement(String enhancement);
 
 	// end about screen.
 	
@@ -113,33 +83,14 @@ public interface Payload {
 	List<List<String>> getDataList();
 	// END: data table
 
-
-
-	int getTotalRecord();
-
-	void setTotalRecord(int totalRecord);
-
-	// START: pagination
-	int getFirstResult();
-
-	void setFirstResult(int firstResult);
-
-	int getRowsPerPage();
-
-	void setRowsPerPage(int rowsPerPage);
-
-	int getTotalRows();
-
-	void setTotalRows(int totalRows);
-	// END: pagination
 	List getObjectsInfoList();
 	void setObjectsInfoList(List objectsInfoList);
 	
 	CBW01000BaseForm getObjectForm();
 	void setObjectForm(CBW01000BaseForm form);
 	
-	List getObjectsInfo2List();
-	void setObjectsInfo2List(List objectsInfo2List);
+	Object getObjectInfo();
+	void setObjectInfo(Object objectInfo);
 	
 	/*
 	 * For Operation Common screen
@@ -152,12 +103,4 @@ public interface Payload {
 	
 	String getJsonProcessCurrent();
 	void setJsonProcessCurrent(String jsonProcessCurrent);
-	public String getAppId();
-	public void setAppId(String aplid);
-	public String getAppId2();
-	public void setAppId2(String aplid2);
-	
-	
-	public void setFields(Map<String, String> params);
-	public Map<String, String> getFields();
 }
