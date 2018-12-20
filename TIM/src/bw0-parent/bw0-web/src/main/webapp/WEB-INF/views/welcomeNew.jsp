@@ -14,26 +14,33 @@
 
 <script type="text/javascript">
 $( document ).ready(function() {
-
+	
 	$('#btnLogin').click(function(){
+		
 		
 		$.ajax({
 		  url: _mappingPath+"/login",
 		  data: { username: $('#username').val(), password: $('#password').val() },
 		}).done(function(datas) {
-		 // alert( "done" );
-		  searchFinish(datas);
+			if (!datas.name){
+				alert("Not User");
+				$('#username').val('');
+				$('#password').val('');
+			}else{
+				//alert( "Welcome " + datas.name );
+				sessionStorage.setItem('key', datas.name);
+				var data = sessionStorage.getItem('key');
+				//alert(data);
+				searchFinish(datas);
+			}
+		  
 		});
 		
 	});
 	window.searchFinish =
 		function searchFinish(datas, loading){
 			window.location.href = 'customer/customerExpireList';
-	}
-	
-		
-		
-	
+	}	
 });
 function cancel(){
 	$('#username').val('');

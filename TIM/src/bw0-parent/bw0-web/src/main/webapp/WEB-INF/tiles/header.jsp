@@ -223,7 +223,8 @@
 <script type="text/javascript">
 
 $(document).ready(function () {
-
+	var data = sessionStorage.getItem('key');
+	document.getElementById("p1").innerHTML = data;
 	$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
 		  if (!$(this).next().hasClass('show')) {
 		    $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
@@ -314,86 +315,14 @@ $(document).ready(function () {
   </div>
 
 	<nav class="top-menu navbar navbar-expand-md navbar-light p-0">	  	
-	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-	    	<span class="navbar-toggler-icon"></span>
-	  	</button>
-	  	<a class="navbar-brand" href="${pageContext.request.contextPath}">TIM</a>
+	  	
+	  	
 	  	
 	  	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-	    	<ul class="navbar-nav mr-auto">
-	      		<li id="homeMenu" class="nav-item">
-          			<a class="nav-link" href="${pageContext.request.contextPath}"><span class="px-1">Home</span></a>
-        		</li>
-        		<sc2nav:menuGroup groupId="ST3001" title="${groupMasterLabel}" ariaLabelledby="navbarDropdownMenuLink1" haveSubMenu="true">
-	      			<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">	      				
-	      				<sc2nav:menuItem screenId="WST33060" href="master/systemMaster" target="WST33060">${itemSystemMasterLabel}</sc2nav:menuItem>
-	      			</ul>
-	      		</sc2nav:menuGroup>
-        		<sc2nav:menuGroup groupId="BW0300" title="${NewCarInsuranceLabel}" ariaLabelledby="navbarDropdown" haveSubMenu="true">
-        			<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-	        			<sc2nav:menuItem screenId="WBW03110" href="NewCarInsurance" target="WBW03110">${ActivateNewCarInsuranceLabel}</sc2nav:menuItem>
-	        			<sc2nav:menuItem screenId="WBW03210" href="NewCarInsurance/Report" target="WBW03210">${NewCarInsuranceReportLabel}</sc2nav:menuItem>
-	        		</ul>
-        		</sc2nav:menuGroup>
-        		
-				<sc2nav:menuGroup groupId="BW0400" title="${InsuranceRenewalLabel}" ariaLabelledby="navbarDropdown" haveSubMenu="true">
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-	        			<sc2nav:menuItem screenId="WBW04110" href="InsuranceRenewal/Telemarketing" target="WBW04110">${TelemarketingLabel}</sc2nav:menuItem>
-	        			<sc2nav:menuItem screenId="WBW04210" href="InsuranceRenewal/AddNewCustomerProfile" target="WBW04210">${AddNewCustomerProfileLabel}</sc2nav:menuItem>
-	        		</ul>
-        		</sc2nav:menuGroup>
-        		
-        		<sc2nav:menuGroup groupId="BW0500" screenId="WBW05110" href="InsuranceCompany" title="${InsuranceCompanyLabel}" ariaLabelledby="navbarDropdown" haveSubMenu="false">
-        		</sc2nav:menuGroup>
-	      		
-	      		<sc2nav:menuGroup groupId="BW0600" title="${ManagementLabel}" ariaLabelledby="navbarDropdownMenuLink2" haveSubMenu="true">
-	      			<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-	      				<sc2nav:menuSubGroup subGroupId="BW06100" title="${ManagementNewCarInsuranceLabel}">
-	      					<ul class="dropdown-menu dropdown-submenu-newcar">
-	      						<sc2nav:menuItem screenId="WBW06110" href="Management/NewCarInsurancePortfolioManagement" target="WBW06110">${ManagementNewCarInsurancePortfolioLabel}</sc2nav:menuItem>
-	      						<sc2nav:menuItem screenId="WBW06120" href="Management/NewCarInsuranceActivationManagement" target="WBW06120">${ManagementNewCarInsuranceActivationLabel}</sc2nav:menuItem>
-	      					</ul>
-	      				</sc2nav:menuSubGroup>
-	      				<sc2nav:menuSubGroup subGroupId="BW06200" title="${ManagementInsuranceRenewalLabel}">
-	      					<ul class="dropdown-menu dropdown-submenu-renewal">
-	      						<sc2nav:menuItem screenId="WBW06211" href="Management/StandardRenewalSOPPICSetting" target="WBW06211">${StandardRenewalSOPPICSettingLabel}</sc2nav:menuItem>
-	      						<%-- <sc2nav:menuItem screenId="WBW06221" href="Management/SpecialContactSetting" target="WBW06221">${SpecialContactSettingLabel}</sc2nav:menuItem> --%>
-	      						<sc2nav:menuSubGroup subGroupId="BW06220" title="${SpecialContactSettingLabel}">
-	      							<ul class="dropdown-menu dropdown-submenu-special-contact">
-	      								<sc2nav:menuItem screenId="WBW06221" href="Management/SpecialContactActivity" target="WBW06221">${SpecialContactActivityLabel}</sc2nav:menuItem>
-	      								<sc2nav:menuItem screenId="WBW06222" href="Management/CreateNewSpecialContact" target="WBW06222">${CreateNewSpecialContactLabel}</sc2nav:menuItem>
-	      							</ul>
-	      						</sc2nav:menuSubGroup>
-	      						<sc2nav:menuItem screenId="WBW06231" href="Management/ActivitiesReminder" target="WBW06231" style="dropdown-item badge2" dataBadge="119">${ActivitiesReminderLabel}</sc2nav:menuItem>
-	      					</ul>
-	      				</sc2nav:menuSubGroup>
-	      				<sc2nav:menuSubGroup subGroupId="BW06300" title="${ManagementManpowerAccountLabel}">
-	      					<ul class="dropdown-menu dropdown-submenu-manpower">
-	      						<sc2nav:menuItem screenId="WBW06311" href="Management/InsuranceCustomerDatabasedManagement" target="WBW06311">${InsuranceCustomerDatabasedManagementLabel}</sc2nav:menuItem>
-	      						<sc2nav:menuItem screenId="WBW06321" href="Management/AccountManagement" target="WBW06321">${AccountManagementLabel}</sc2nav:menuItem>
-	      					</ul>
-	      				</sc2nav:menuSubGroup>
-	      				<sc2nav:menuItem screenId="WBW06410" href="Management/InsurancePremium" target="WBW06410">${ManagementInsurancePremiumLabel}</sc2nav:menuItem>
-	      				<sc2nav:menuSubGroup subGroupId="BW06500" title="${ManagementReportLabel}">
-	      					<ul class="dropdown-menu dropdown-submenu-report">
-	      						<sc2nav:menuItem screenId="WBW06510" href="Management/ReportDataOfINSRenewal" target="WBW06510">${ExportOfINSRenewalLabel}</sc2nav:menuItem>
-	      						<sc2nav:menuItem screenId="WBW06520" href="Management/ProcessResultKPIs" target="WBW06520">${ProcessResultKPIsLabel}</sc2nav:menuItem>
-	      						<sc2nav:menuItem screenId="WBW06530" href="Management/BPReturningReport" target="WBW06530">${BPReturningReportLabel}</sc2nav:menuItem>
-	      						<sc2nav:menuItem screenId="WBW06540" href="Management/FirstYearRedPlateINSReport" target="WBW06540">${FirstYearRedPlateINSReport}</sc2nav:menuItem>
-	      					</ul>
-	      				</sc2nav:menuSubGroup>
-	      			</ul>
-	      		</sc2nav:menuGroup>
-	      		
-	      		<sc2nav:menuGroup groupId="ST3002" title="${groupCommonLabel}" ariaLabelledby="navbarDropdown" haveSubMenu="true">
-					<ul class="dropdown-menu dropdown-submenu-common" aria-labelledby="navbarDropdown">
-	        			<sc2nav:menuItem screenId="WST33010" href="common/logMonitoring" target="WST33010">${itemLogMonitoringLabel}</sc2nav:menuItem>
-	        			<sc2nav:menuItem screenId="WST30900" href="common/excelDownloadMonitoring" target="WBW03210">${itemExcelDownloadMonitoringLabel}</sc2nav:menuItem>
-	        		</ul>
-        		</sc2nav:menuGroup>
-	    	</ul>
+	    	
 	  	</div>
-	  	
+	  	<a id="p1" class="navbar-brand" ></a>  |
+	  	<a class="navbar-brand" href="${pageContext.request.contextPath}">Logout</a>
 	  	
 	</nav>
    

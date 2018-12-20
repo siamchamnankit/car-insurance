@@ -120,42 +120,6 @@ public class WelcomeController extends BaseController {
 //		Payload payload = new XmlPayload();
 		ServiceStatus status = ServiceStatus.OK;
 		UserInfo userInfo = repo.authen(username, password);
-		try{
-//			Set<ConstraintViolation<AuthenForm>> errors = validator.validate(form);
-//			List<String> errorList = form.validate(messageSource, RequestContextUtils.getLocale(request), AppConstants.ACTION_SEARCH, payload);
-//
-//			if ((!errors.isEmpty()) || (!errorList.isEmpty())) {
-//				errorList.addAll(processErrorMessageFromValidator(errors.toArray(), RequestContextUtils.getLocale(request), new CST33060Form()));
-//				status = ServiceStatus.NG;
-//				payload.addErrorMessages(errorList);
-//			}else{	
-				//payload = populatePayloadForDisplay(VIEW_NAME, payload, RequestContextUtils.getLocale(request));
-			//	boolean isFound = service.searchAllData(form, payload, request);
-				
-				
-				//payload.s
-				//service.loadCombobox(userInfo, form);
-				//List<ComboValue> subCategoryList = service.loadSubCategory(form.getCategorySearch());
-				//form.setSubCategoryList(subCategoryList);
-//				payload.setObjectForm(form);
-				
-//				form.setMessageResult(request.getParameter("messageResult"));
-				/*if (!isFound && Strings.isNullOrEmpty(form.getMessageResult())) {
-					status = ServiceStatus.NG;
-//					payload.addErrorMessage(messageSource.getMessage(CST30000Messages.ERROR_MESSAGE_DATA_NOT_FOUND, new String[] {},
-//							Locale.getDefault()));
-				}*/
-//			}
-//		} catch (CommonErrorException e){
-//			logger.error(ExceptionUtils.getStackTrace(e));
-//			status = ServiceStatus.NG;
-//			payload.addErrorMessage(messageSource.getMessage(e.getMessageCode(), e.getMessageArg(), Locale.getDefault()));
-		} catch (Exception e) {
-			logger.error(ExceptionUtils.getStackTrace(e));
-			status = ServiceStatus.NG;
-//			payload.addErrorMessage(messageSource.getMessage(CST30000Messages.ERROR_UNDEFINED_ERROR, new String[] { e.getMessage() },
-//					RequestContextUtils.getLocale(request)));
-		}
 		return userInfo;
 		
 	}
