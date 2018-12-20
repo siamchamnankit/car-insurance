@@ -72,7 +72,7 @@ public class CSTCustomerListRepository implements ISTCustomerListRepository{
 				SQL.append(" insurance.insurance_id,   ");
 				SQL.append(" insurance.insurance_type,   ");
 				SQL.append(" insurance.insurance_name,   ");
-				SQL.append(" customer.expire_date   ");
+				SQL.append(" DATE_FORMAT(customer.expire_date, '%d/%m/%Y') as expire_date   ");
 				SQL.append(" FROM customer    ");
 				SQL.append(" inner JOIN insurance    ");
 				SQL.append(" on customer.insurance_id = insurance.insurance_id   ");
