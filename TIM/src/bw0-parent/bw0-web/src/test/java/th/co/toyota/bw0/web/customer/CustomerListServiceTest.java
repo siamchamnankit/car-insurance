@@ -72,7 +72,7 @@ public class CustomerListServiceTest {
 	
 	@Test
 	public void TestSearchCustomerExpireDateValus01122018To01052018ShowDetail() throws Exception {
-		curDate = "01/12/2018";
+		curDate = "01/06/2018";
 		preiod  = 6;
 		customerList = repository.generateSearchQuery(customerName, curDate, preiod);
 		assertEquals("Not Found Detail Customer 01/12/2018 - 01/05/2018", "0", Integer.toString(customerList.size()));

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import th.co.toyota.application.model.CustomerInsuranceInfo;
 import th.co.toyota.application.model.InsuranceInfo;
@@ -57,6 +58,7 @@ public class CustomerInsuranceController extends BaseController {
 		ServiceStatus status = ServiceStatus.OK;
 		try {
 			payload.setStatus(ServiceStatus.OK);
+			populatePayloadForDisplay(VIEW_NAME, payload, RequestContextUtils.getLocale(request));
 			UserInfo userInfo = getUserInSession(request);
 			service.searchAllData(customerId, insuranceType, payload);
 			
