@@ -30,10 +30,15 @@ $( document ).ready(function() {
 		function searchFinish(datas, loading){
 			window.location.href = 'customer/customerExpireList';
 	}
-	$('#btnCancel').click(function(){
+	
 		
-	}
+		
+	
 });
+function cancel(){
+	$('#username').val('');
+	$('#password').val('');
+}
 </script>
 
 <spring:message code="imagepath" var="imagepath" />
@@ -68,7 +73,7 @@ $( document ).ready(function() {
 						<button id="btnLogin" type="button">
 							Login
 						</button>
-						<button id="btnCancel" type="button">
+						<button onclick="cancel()" type="button">
 							Cancel
 						</button>
 					</div>
