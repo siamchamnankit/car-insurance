@@ -1,0 +1,55 @@
+{
+	"variables": [],
+	"info": {
+		"name": "mond",
+		"_postman_id": "4012c21d-8766-6098-5401-d2d6dcc890e1",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testLogin",
+			"request": {
+				"url": "http://68.183.189.108:8080/bw0-web/customer/customerExpireList/search",
+				"method": "POST",
+				"header": [
+					{
+						"key": "customerName",
+						"value": "6",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "cName",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "iExpirePeriod",
+							"value": "6",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "currentDate",
+							"value": "20/12/2018",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

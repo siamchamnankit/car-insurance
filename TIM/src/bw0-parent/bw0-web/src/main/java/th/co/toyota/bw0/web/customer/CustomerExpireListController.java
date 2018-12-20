@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContext;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import th.co.toyota.application.model.CustomerExpireInfo;
 import th.co.toyota.application.model.Payload;
@@ -27,7 +28,7 @@ import th.co.toyota.bw0.web.customer.service.CSTCustomerListService;
 @RequestMapping("customer/customerExpireList")
 public class CustomerExpireListController extends BaseController {
 
-	private static final String VIEW_NAME = "CustomerList";
+	private static final String VIEW_NAME = "WBW08000";
 	
 	@Autowired
 	private CSTCustomerListService service;
@@ -37,8 +38,7 @@ public class CustomerExpireListController extends BaseController {
 	public ModelAndView initial(HttpServletRequest request, CustomerExpireForm form) throws CommonErrorException {
 		ModelAndView mv = new ModelAndView(VIEW_NAME);
 		Payload payload = new XmlPayload();
-		ServiceStatus status = ServiceStatus.OK;
-		
+		populatePayloadForDisplay(VIEW_NAME, payload, RequestContextUtils.getLocale(request));
 		form.setEnableCriteriaName(false);
 		
 		mv.addObject(AppConstants.MV_FORM, form);
@@ -54,6 +54,7 @@ public class CustomerExpireListController extends BaseController {
 		
 		List<CustomerExpireInfo> listCustomer = new ArrayList<CustomerExpireInfo>();
 		try {
+			populatePayloadForDisplay(VIEW_NAME, payload, RequestContextUtils.getLocale(request));
 //			service.searchCustomerExpireData(null, form.getcName(), form.getCurrentDate(), null);
 			listCustomer = service.searchCustomerExpireData(form.getcName(), form.getCurrentDate(), form.getiExpirePeriod());
 			
