@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,12 +21,16 @@ import th.co.toyota.application.web.BaseController;
 import th.co.toyota.bw0.api.constants.AppConstants;
 import th.co.toyota.bw0.api.exception.common.CommonErrorException;
 import th.co.toyota.bw0.web.customer.form.CustomerExpireForm;
+import th.co.toyota.bw0.web.customer.service.CSTCustomerListService;
 
 @Controller
 @RequestMapping("customer/customerExpireList")
 public class CustomerExpireListController extends BaseController {
 
 	private static final String VIEW_NAME = "CustomerList";
+	
+	private CSTCustomerListService service = new CSTCustomerListService();
+
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView initial(HttpServletRequest request, CustomerExpireForm form) throws CommonErrorException {
@@ -46,19 +51,24 @@ public class CustomerExpireListController extends BaseController {
 		Payload payload = new XmlPayload();
 		ServiceStatus status = ServiceStatus.OK;
 		
-		payload.setStatus(status);
-//		return payload;
-		
 		List<CustomerExpireInfo> listCustomer = new ArrayList<CustomerExpireInfo>();
-		for (int i=1; i<=form.getiExpirePeriod(); i++) {
-			CustomerExpireInfo c = new CustomerExpireInfo();
-			c.setCustomerId("C" + (i));
-			c.setCustomerName("Name " + (i));
-			c.setExpireDate("20/01/2019");
-			c.setInsurnaceId("1");
+		try {
+//			service.searchCustomerExpireData(null, form.getcName(), form.getCurrentDate(), null);
+			listCustomer = service.searchCustomerExpireData(form.getcName(), form.getCurrentDate(), form.getiExpirePeriod());
 			
-			listCustomer.add(c);
+//			for (int i=1; i<=form.getiExpirePeriod(); i++) {
+//				CustomerExpireInfo c = new CustomerExpireInfo();
+//				c.setCustomerId("C" + (i));
+//				c.setCustomerName("Name " + (i));
+//				c.setExpireDate("20/01/2019");
+//				c.setInsurnaceId("1");
+//				
+//				listCustomer.add(c);
+//			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		payload.setStatus(status);
 		return listCustomer;
 	}
 }
