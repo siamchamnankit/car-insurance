@@ -16,5 +16,5 @@ Login ด้วย password ผิด
 
 *** Keywords ***
 ระบุ password ผิด
-    Input Text     Password    3N11111
-    Click Button    btnLogin
+    Input Text     password    3N11111
+    Click Button    id:btnLogin

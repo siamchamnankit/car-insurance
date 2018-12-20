@@ -11,14 +11,14 @@
     Input Text     username    prathan
 
 ระบุ password ถุกต้อง
-    Input Text     password    3Nj0y3819
-    Click Button    btnLogin
+    Input Text     password    3Nj0Y8319
+    Click Button    id:btnLogin
 
 แสดงหน้าค้นหา
-    Wait Until Page Contain     Customer List
+    Wait Until Page Contains     Customer List
 
 กดปุ่มค้นหา
-    Click Button    btnSearch
+    Click Button    id:btnSearch
 
 แสดงผล 5 รายการ
     Page Should Contain     Total found 5 record
@@ -35,4 +35,4 @@
     Close Browser
 
 แสดง error user/password
-    Wait Until Page Contain     non user
+    Alert Should Be Present     Not User    ACCEPT    40
