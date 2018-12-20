@@ -20,6 +20,8 @@ package th.co.toyota.bw0.web.customer.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,8 +30,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import th.co.toyota.application.model.CustomerExpireInfo;
 import th.co.toyota.bw0.api.repository.common.IBW00000Repository;
-import th.co.toyota.bw0.web.customer.form.CustomerInfoForm;
 import th.co.toyota.bw0.web.customer.repository.ISTCustomerListRepository;
 
 @Service
@@ -45,13 +47,17 @@ public class CSTCustomerListService {
 
 
 	@SuppressWarnings("unchecked")
-	public boolean searchCustomerExpireData(CustomerInfoForm form, String customerName, String expireDate, HttpServletRequest request) throws Exception {
-		boolean foundData = false;
+	public List<CustomerExpireInfo> searchCustomerExpireData(String customerName, String currentDate, int iPeriod) throws Exception {
 		Connection conn = null;
+		List<CustomerExpireInfo> listResult = new ArrayList<CustomerExpireInfo>();
 		try{
 			conn = commonRepository.getConnection();
-			Object[] query = repository.generateSearchQuery(null , null , 6);
+			Object[] objAll = repository.generateSearchQuery(customerName , currentDate , iPeriod);
 			
+			
+			for (Object objArr : objAll) {
+				
+			}
 		
 		}finally{
 			try {
@@ -62,7 +68,7 @@ public class CSTCustomerListService {
 				e.printStackTrace();
 			}
 		}
-		return foundData;
+		return listResult;
 	}
 
 }
