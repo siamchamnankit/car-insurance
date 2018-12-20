@@ -71,6 +71,7 @@ public class CSTCustomerListRepository implements ISTCustomerListRepository{
 				SQL.append(" customer.customer_name,   ");
 				SQL.append(" insurance.insurance_id,   ");
 				SQL.append(" insurance.insurance_type,   ");
+				SQL.append(" insurance.insurance_name,   ");
 				SQL.append(" customer.expire_date   ");
 				SQL.append(" FROM customer    ");
 				SQL.append(" inner JOIN insurance    ");
