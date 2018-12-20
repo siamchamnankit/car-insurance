@@ -9,8 +9,22 @@ public class CustomerExpireInfo {
 	String province;
 	String model;
 	String insurnaceId;
+	String insuranceName;
+	public String getInsuranceName() {
+		return insuranceName;
+	}
+	public void setInsuranceName(String insuranceName) {
+		this.insuranceName = insuranceName;
+	}
 	String expireDate;
+	String insuranceType;
 	
+	public String getInsuranceType() {
+		return insuranceType;
+	}
+	public void setInsuranceType(String insuranceType) {
+		this.insuranceType = insuranceType;
+	}
 	public String getCustomerId() {
 		return customerId;
 	}
