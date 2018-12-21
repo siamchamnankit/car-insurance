@@ -28,8 +28,8 @@ Search ประกันชั้น 3
 
 
 แสดงประกันถ้าประกันเดิมชั้น 3
-    Element Should Contain    ins_title1   ประกันรถยนต์ชั้น 1  
-    Element Should Contain    ins_title2   เมืองไทย 3+ คุ้มเว่อร์
-    Element Should Contain    ins_title3   เมืองไทยขับดียกกำลัง ยกกำลัง 8
+    Page Should Contain    ความคุ้มครอง รถเก๋ง/กระบบ 4 ประตู จำนวน 7 ที่นั่ง   
+    Page Should Contain    เบี้ยประกันภัยเริ่มต้นที่ 8,400 บาท
+    Page Should Contain    เบี้ยประกันภัย 8,888 บาท รถเก๋ง ซ่อมอู่
 
 

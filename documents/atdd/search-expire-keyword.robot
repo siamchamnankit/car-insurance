@@ -21,7 +21,7 @@
     Click Button    id:btnSearch
 
 แสดงผล 5 รายการ
-    Page Should Contain     Total found 5 record
+    Wait Until Page Contains     Total found 5 record
 
 เลือกรายการ
     [Arguments]    ${rownum}

@@ -28,6 +28,6 @@ Search ประกันชั้น 1
     ปิด Browser
 
 แสดงประกันถ้าประกันเดิมชั้น 1
-    Element Should Contain    ins_title1   ประกันรถยนต์ชั้น 1  
+    Page Should Contain    ความคุ้มครอง รถเก๋ง/กระบบ 4 ประตู จำนวน 7 ที่นั่ง  
 
 
