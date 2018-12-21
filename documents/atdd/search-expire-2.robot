@@ -28,6 +28,7 @@ Search ประกันชั้น 2
     ปิด Browser
 
 แสดงประกันถ้าประกันเดิมชั้น 2
+    Wait Until Element Is Visible    class:ins_title    10s
     Page Should Contain    ความคุ้มครอง รถเก๋ง/กระบบ 4 ประตู จำนวน 7 ที่นั่ง   
-    Page Should Contain    เบี้ยประกันภัยเริ่มต้นที่ 8,400 บาท
+    Page Should Contain    เบี้ยประกันภัย 8,888 บาท รถเก๋ง ซ่อมอู่
 

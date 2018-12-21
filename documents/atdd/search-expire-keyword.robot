@@ -21,6 +21,7 @@
     Click Button    id:btnSearch
 
 แสดงผล 5 รายการ
+    Wait Until Element Is Visible    id:result-summary    10s
     Wait Until Page Contains     Total found 5 record
 
 เลือกรายการ
