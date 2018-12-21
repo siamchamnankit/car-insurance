@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,6 @@ import com.google.common.base.Strings;
 
 import th.co.toyota.application.config.AppConfig;
 import th.co.toyota.application.web.repository.ISTAuthenRepository;
-import th.co.toyota.bw0.api.repository.common.IBW00000Repository;
 import th.co.toyota.bw0.api.service.common.UserInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -28,15 +27,11 @@ public class AuthenRepositoryTest {
 	@Autowired
 	private ISTAuthenRepository repository;
 	
-	@Autowired
-	private IBW00000Repository commonRepository;
-	
-
 	String username = "prathan";
 	String password = "3Nj0Y8319";
 	Connection conn = null;
 	
-	@Before
+	@BeforeClass
 	public void setUp() {
 //		conn = commonRepository.getConnection();
 //		assertEquals("Open Connection","Open Connection");
@@ -86,16 +81,16 @@ public class AuthenRepositoryTest {
 	}
 
 	
-	@After
+	@AfterClass
 	public void close() {
-		try {
-			if(conn!=null && !conn.isClosed()){
+//		try {
+//			if(conn!=null && !conn.isClosed()){
 //				conn.close();
 //				assertEquals("Closed Connection","Closed Connection");
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 	}
 }
