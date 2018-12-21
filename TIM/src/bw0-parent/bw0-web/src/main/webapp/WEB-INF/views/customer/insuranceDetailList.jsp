@@ -33,7 +33,7 @@
 </script>
 
 
-<div class="" style="margin-top: 5px;margin-left:5px;" >
+<div class="" style="margin-top: 5px;margin-left:5px;margin-bottom: 20px;" >
 	<h1><spring:message code="Label.title.detail"/></h1>
 	
 	<table id="tbl_insurance_detail">
